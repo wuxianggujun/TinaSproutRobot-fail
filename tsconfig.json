@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    "module": "ES6",
+    "target": "ES6",
+    "sourceMap": false,
+    "outDir": "build",
+    "moduleResolution":"node",
+    //不编译js
+    "allowJs": false,
+    //检查js代码是否符合规范
+    "checkJs": false,
+    //严格检查总开关
+    "strict": false,
+    //是否移除注释
+    "removeComments": true,
+    //用来设置编译后的文件是否使用严格模式，默认false
+    "alwaysStrict": true,
+    //不允许隐式any
+    "noImplicitAny": true,
+    //不允许不明确的this
+    "noImplicitThis": true,
+    //严格检查null值
+    "strictNullChecks": true
+  },
+  //设置排除的目录
+  "exclude": [
+    "node_modules"
+  ],
+  //那些ts文件需要编写 ** 任意目录 * 任意文件
+  "include": [
+    "src/**/*",
+    "tests/*"
+  ]
+
+}
