@@ -2,8 +2,7 @@ module.exports = {
     setting:{
         //mysql配置
         mysql:{
-            host: 'localhost',
-
+            host: 'localhost'
 
         },
         server:{

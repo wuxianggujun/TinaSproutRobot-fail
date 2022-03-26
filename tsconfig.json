@@ -1,12 +1,14 @@
 {
   "compilerOptions": {
-    "module": "ES6",
-    "target": "ES6",
+    "module": "CommonJS",
+    "target": "ESNext",
     "sourceMap": false,
     "outDir": "build",
-    "moduleResolution":"node",
     //不编译js
-    "allowJs": false,
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution":"node",
+    "esModuleInterop": true,
     //检查js代码是否符合规范
     "checkJs": false,
     //严格检查总开关
