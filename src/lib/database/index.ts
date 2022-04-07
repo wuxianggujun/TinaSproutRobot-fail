@@ -28,6 +28,7 @@ export class MySql {
         return this.connection;
     }
 
+
     public async getTransaction(): Promise<Knex.Transaction> {
         const connection = await this.getConnection();
         return new Promise<Knex.Transaction>((resolve, reject) => {
@@ -68,6 +69,15 @@ export class MySql {
                 password: this.config.password,
                 database: this.config.database
             },
+            pool: {
+                min: 0, max: 10,
+                createTimeoutMillis: 3000,
+                acquireTimeoutMillis: 30000,
+                idleTimeoutMillis: 30000,
+                reapIntervalMillis: 1000,
+                createRetryIntervalMillis: 100,
+                propagateCreateError: false // <- default is true, set to fal
+            },
             debug: this.config.debug,
             migrations: {
                 tableName: 'migrations'
@@ -75,12 +85,9 @@ export class MySql {
         }
         const db: Knex = knex(config)
 
-        await db.raw('select 1');
+        //await db.raw('select 1');
 
         return db;
-        // return new Promise<Knex>((resolve, reject) => {
-        //     resolve(db.migrate.latest())
-        // });
     }
 
     private retryDbConnection(): Promise<Knex> {
